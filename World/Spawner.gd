@@ -18,11 +18,11 @@ func _turn():
 		num = rng.randi_range(0, 1)
 		if(num == 1):
 			num = rng.randi_range(0, 240)
-			num = num + 8 - (num + 8)%16
-			offset = Vector2(256/2, num)
+			num = num + Global.tile_size/2 - (num + Global.tile_size/2)%Global.tile_size
+			offset = Vector2(256, num)
 		else:
 			num = rng.randi_range(0, 240)
-			num = num + 8 - (num + 8)%16
-			offset = Vector2(-256/2, num)
+			num = num + Global.tile_size/2 - (num + Global.tile_size/2)%Global.tile_size
+			offset = Vector2(-256, num)
 		pirate.global_position = player.global_position + offset
 		add_child(pirate)
