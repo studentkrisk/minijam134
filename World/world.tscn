@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvq56tgh6h3fu"]
+[gd_scene load_steps=5 format=3 uid="uid://bvq56tgh6h3fu"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_sarla"]
 [ext_resource type="PackedScene" uid="uid://bbew8w873l4qn" path="res://Player/Player.tscn" id="2_4t7c6"]
+[ext_resource type="Script" path="res://World/Spawner.gd" id="3_cv7gn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm1o5"]
 size = Vector2(16, 16)
@@ -23,3 +24,7 @@ shape = SubResource("RectangleShape2D_sm1o5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 8)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("3_cv7gn")
