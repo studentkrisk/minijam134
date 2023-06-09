@@ -33,7 +33,7 @@ func _turn():
 					dir = Vector2(0, -1)
 				else:
 					dir = Vector2(0, 1)
-				var cannon = Cannon.instanstiate()
+				var cannon = Cannon.instantiate()
 				cannon.global_position = global_position
 				cannon.direction = dir
 				get_parent().add_child(cannon)

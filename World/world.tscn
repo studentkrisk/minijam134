@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvq56tgh6h3fu"]
+[gd_scene load_steps=4 format=3 uid="uid://bvq56tgh6h3fu"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_sarla"]
 [ext_resource type="PackedScene" uid="uid://bbew8w873l4qn" path="res://Player/Player.tscn" id="2_4t7c6"]
 [ext_resource type="Script" path="res://World/Spawner.gd" id="3_cv7gn"]
-[ext_resource type="TileSet" uid="uid://1sa81c0nictx" path="res://Art/test_tile_set.tres" id="4_kfi5i"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sarla")
@@ -21,7 +20,3 @@ y_sort_enabled = true
 script = ExtResource("3_cv7gn")
 
 [node name="Islands" type="Node2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Islands"]
-tile_set = ExtResource("4_kfi5i")
-format = 2
