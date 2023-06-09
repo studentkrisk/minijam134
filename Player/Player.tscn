@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbew8w873l4qn"]
 
-[ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="1_au5sb"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_qeom8"]
+[ext_resource type="Texture2D" uid="uid://b3bhkmm5aai4t" path="res://Art/player.png" id="2_7m6nd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucujw"]
 size = Vector2(15, 15)
@@ -10,12 +10,21 @@ size = Vector2(15, 15)
 collision_layer = 3
 script = ExtResource("1_qeom8")
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("1_au5sb")
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7m6nd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ucujw")
 
 [node name="Raycast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ucujw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
