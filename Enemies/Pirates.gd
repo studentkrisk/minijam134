@@ -47,10 +47,10 @@ func _turn():
 					$Cooldown.start(1)
 		$Raycast2D.target_position = inp * Global.tile_size
 		if not $Raycast2D.is_colliding():
-			#global_position += $Raycast2D.target_position
-			var tween = create_tween()
-			tween.tween_property(self, "global_position", global_position + $Raycast2D.target_position, 0.1)
-			tween.play()
+			global_position += $Raycast2D.target_position
+			#var tween = create_tween()
+			#tween.tween_property(self, "global_position", global_position + $Raycast2D.target_position, 0.01)
+			#tween.play()
 		
 
 func _on_player_detection_zone_body_entered(body):

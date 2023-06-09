@@ -19,10 +19,4 @@ position_smoothing_enabled = true
 y_sort_enabled = true
 script = ExtResource("3_cv7gn")
 
-[node name="Timer" type="Timer" parent="Enemies"]
-wait_time = 0.1
-autostart = true
-
 [node name="Islands" type="Node2D" parent="."]
-
-[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_timer_timeout"]
