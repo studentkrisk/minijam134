@@ -5,7 +5,6 @@ var can_shoot = true
 
 @onready var Cannon = preload("res://Enemies/cannon.tscn")
 
-
 func _turn():
 	if player != null:
 		var inp = Vector2.ZERO
