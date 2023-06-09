@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://vrrpce0gurqc"]
+[gd_scene load_steps=5 format=3 uid="uid://vrrpce0gurqc"]
 
 [ext_resource type="Script" path="res://Enemies/Pirates.gd" id="1_btya5"]
 [ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="1_i6ryi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mysd"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw6yh"]
+size = Vector2(80, 80)
 
 [node name="Pirates" type="CharacterBody2D"]
 script = ExtResource("1_btya5")
@@ -15,3 +18,15 @@ texture = ExtResource("1_i6ryi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4mysd")
+
+[node name="PlayerDetectionZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
+shape = SubResource("RectangleShape2D_lw6yh")
+
+[node name="Raycast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]

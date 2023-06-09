@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var Pirate = preload("res://Enemies/Pirates.tscn")
 
-@export var chance = 50
+@export var chance = 10
 
 var rng = RandomNumberGenerator.new()
 
