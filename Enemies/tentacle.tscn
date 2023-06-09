@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5qe2d42g2spe"]
+
+[ext_resource type="Texture2D" uid="uid://cgop0flwigjnh" path="res://Art/Tentacle.png" id="1_6yc3y"]
+[ext_resource type="Script" path="res://Enemies/tentacle.gd" id="1_oodje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0dcp"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re2eu"]
+size = Vector2(96, 96)
+
+[node name="Tentacle" type="AnimatableBody2D"]
+script = ExtResource("1_oodje")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_6yc3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o0dcp")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_re2eu")
+
+[node name="Telegraph" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Telegraph"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = 48.0
+color = Color(1, 0.0588235, 0.0666667, 0.490196)
+
+[node name="ColorRect2" type="ColorRect" parent="Telegraph"]
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(1, 0.0588235, 0.0666667, 0.490196)
+
+[node name="ColorRect3" type="ColorRect" parent="Telegraph"]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -16.0
+color = Color(1, 0.0588235, 0.0666667, 0.490196)
+
+[node name="ColorRect4" type="ColorRect" parent="Telegraph"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 48.0
+color = Color(1, 0.0588235, 0.0666667, 0.490196)

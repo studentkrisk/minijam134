@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucujw"]
 size = Vector2(32, 32)
 
-[sub_resource type="Animation" id="Animation_o54nt"]
-resource_name = "Right"
+[sub_resource type="Animation" id="Animation_ha1bt"]
+resource_name = "Down"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -19,22 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_ruppt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_jrxtt"]
@@ -53,6 +38,37 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_ruppt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_o54nt"]
+resource_name = "Right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_7q1n8"]
 resource_name = "Up"
 length = 0.001
@@ -67,22 +83,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
-}
-
-[sub_resource type="Animation" id="Animation_ha1bt"]
-resource_name = "Down"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrptn"]
@@ -154,5 +154,24 @@ parameters/blend_position = Vector2(0, 0)
 [node name="Wait" type="Timer" parent="."]
 one_shot = true
 
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Grid"]
+points = PackedVector2Array(-16, -255, -16, 255)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="Grid"]
+points = PackedVector2Array(16, -255, 16, 255)
+width = 3.0
+
+[node name="Line2D3" type="Line2D" parent="Grid"]
+points = PackedVector2Array(-271, 16, 271, 16)
+width = 3.0
+
+[node name="Line2D4" type="Line2D" parent="Grid"]
+points = PackedVector2Array(-271, -16, 271, -16)
+width = 3.0
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]
