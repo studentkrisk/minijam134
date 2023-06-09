@@ -1,10 +1,120 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbew8w873l4qn"]
+[gd_scene load_steps=15 format=3 uid="uid://bbew8w873l4qn"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_qeom8"]
 [ext_resource type="Texture2D" uid="uid://b3bhkmm5aai4t" path="res://Art/player.png" id="2_7m6nd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucujw"]
 size = Vector2(15, 15)
+
+[sub_resource type="Animation" id="Animation_r3s8w"]
+resource_name = "Up"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_q5288"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_6xxs3"]
+resource_name = "Down"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_2wsyr"]
+resource_name = "Left"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gacpm"]
+resource_name = "Right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdew2"]
+_data = {
+"Down": SubResource("Animation_6xxs3"),
+"Left": SubResource("Animation_2wsyr"),
+"RESET": SubResource("Animation_q5288"),
+"Right": SubResource("Animation_gacpm"),
+"Up": SubResource("Animation_r3s8w")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k7ejr"]
+animation = &"Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_02hwi"]
+animation = &"Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_835kg"]
+animation = &"Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8fh0m"]
+animation = &"Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gwoo2"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_k7ejr")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_02hwi")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_835kg")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_8fh0m")
+blend_point_3/pos = Vector2(0, -1)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
@@ -13,6 +123,8 @@ script = ExtResource("1_qeom8")
 [node name="Player" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7m6nd")
+hframes = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ucujw")
@@ -26,5 +138,16 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ucujw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pdew2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace2D_gwoo2")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/blend_position = Vector2(1, 2.08165e-12)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -5,6 +5,7 @@ var moving = false
 signal turn_end
 
 func _physics_process(delta):
+	$AnimationTree.active = !$AnimationTree.active
 	if not $Raycast2D.is_colliding():
 		global_position += $Raycast2D.target_position
 		if moving:
@@ -19,6 +20,9 @@ func _physics_process(delta):
 		-int(Input.is_action_just_pressed("game_left")) + int(Input.is_action_just_pressed("game_right")),
 		-int(Input.is_action_just_pressed("game_up")) + int(Input.is_action_just_pressed("game_down"))
 	)
+	
+	if(inp != Vector2.ZERO):
+		$AnimationTree.set("parameters/blend_position", inp)
 	
 	if(inp != Vector2.ZERO):
 		moving = true
