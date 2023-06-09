@@ -3,28 +3,25 @@
 [ext_resource type="Script" path="res://World/world.gd" id="1_sarla"]
 [ext_resource type="PackedScene" uid="uid://bbew8w873l4qn" path="res://Player/Player.tscn" id="2_4t7c6"]
 [ext_resource type="Script" path="res://World/Spawner.gd" id="3_cv7gn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm1o5"]
-size = Vector2(16, 16)
+[ext_resource type="TileSet" uid="uid://c6bkfnkwqm057" path="res://Art/test_tile_set.tres" id="4_kfi5i"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sarla")
 
 [node name="Player" parent="." instance=ExtResource("2_4t7c6")]
-position = Vector2(8, 8)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(40, 24)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_sm1o5")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8, 8)
+position_smoothing_enabled = true
 
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("3_cv7gn")
+
+[node name="Islands" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Islands"]
+tile_set = ExtResource("4_kfi5i")
+format = 2

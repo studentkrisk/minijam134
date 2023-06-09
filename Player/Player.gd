@@ -5,7 +5,6 @@ var moving = false
 signal turn_end
 
 func _physics_process(delta):
-	$AnimationTree.active = !$AnimationTree.active
 	if not $Raycast2D.is_colliding():
 		global_position += $Raycast2D.target_position
 		if moving:
@@ -22,11 +21,5 @@ func _physics_process(delta):
 	)
 	
 	if(inp != Vector2.ZERO):
-		$AnimationTree.set("parameters/blend_position", inp)
-	
-	if(inp != Vector2.ZERO):
 		moving = true
 	$Raycast2D.target_position = inp * Global.tile_size
-
-func _on_area_2d_body_entered(body):
-	body.queue_free()
