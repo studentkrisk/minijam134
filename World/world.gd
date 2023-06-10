@@ -1,14 +1,13 @@
 extends Node2D
 
 @onready var Island = preload("res://Island.tscn")
-var player
-
 func _ready():
-	player = $Player
+	Global.player = $Player
 	$Player.turn_end.connect(_turn_end)
-	for n in range(10):
+	for n in range(Global.num_islands):
 		var i = Island.instantiate()
-		i.position = Vector2(n*32*8, 0)
+		i.position = Vector2(randi_range(-50, 50)*Global.tile_size, randi_range(-20, 20)*Global.tile_size)
+		Global.islands.append(i.position)
 		$Islands.add_child(i)
 	
 func _turn_end():

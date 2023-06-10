@@ -15,7 +15,7 @@ func _turn():
 	var num = rng.randi_range(0, chanceP)
 	if num == 1:
 		var pirate = Pirate.instantiate()
-		var player = get_parent().player
+		var player = Global.player
 		var offset = Vector2.ZERO
 		num = rng.randi_range(0, 1)
 		if(num == 1):
@@ -32,7 +32,7 @@ func _turn():
 	num = rng.randi_range(0, chanceT)
 	if num == 1:
 		var tentacle = Tentacle.instantiate()
-		var player = get_parent().player
+		var player = Global.player
 		var offset = Vector2.ZERO
 		num = rng.randi_range(0, 3)
 		if(num == 0):

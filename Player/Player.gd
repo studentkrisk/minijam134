@@ -6,7 +6,7 @@ signal turn_end
 
 func _physics_process(delta):
 	$AnimationTree.active = !$AnimationTree.active
-	if not $Raycast2D.is_colliding() and $Wait.is_stopped():
+	if not $Raycast2D.is_colliding():
 		global_position += $Raycast2D.target_position
 		#var tween = create_tween()
 		#tween.tween_property(self, "global_position", global_position + $Raycast2D.target_position, 0.1)
@@ -15,9 +15,6 @@ func _physics_process(delta):
 			#$Wait.start(0.1)
 			#moving = false
 	moving = false
-	
-	if Input.is_action_just_pressed("wait"):
-		emit_signal("turn_end")
 	
 	var inp = Vector2(
 		-int(Input.is_action_just_pressed("game_left")) + int(Input.is_action_just_pressed("game_right")),
@@ -29,6 +26,7 @@ func _physics_process(delta):
 	
 	if(inp != Vector2.ZERO):
 		moving = true
+		emit_signal("turn_end")
 	$Raycast2D.target_position = inp * Global.tile_size
 
 func _on_hurtbox_body_entered(body):

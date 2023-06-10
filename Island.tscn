@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://lanho56jpkxe"]
+[gd_scene load_steps=6 format=3 uid="uid://lanho56jpkxe"]
 
 [ext_resource type="Script" path="res://Island.gd" id="1_e2ci1"]
 [ext_resource type="Texture2D" uid="uid://dwlthjat0tcom" path="res://Art/island_tileset.png" id="1_lx38w"]
+[ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="3_ipo3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tct7b"]
 texture = ExtResource("1_lx38w")
@@ -35,3 +36,7 @@ sources/0 = SubResource("TileSetAtlasSource_tct7b")
 tile_set = SubResource("TileSet_3h1vh")
 format = 2
 script = ExtResource("1_e2ci1")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_ipo3m")
