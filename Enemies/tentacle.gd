@@ -6,11 +6,11 @@ func _process(delta):
 	
 	global_position.y -= fmod(global_position.y, 32)
 	
-	var vec = (get_global_mouse_position() - global_position + Vector2(0, 16))
-	if(vec.x * vec.x + vec.y * vec.y < 16*16):
-		$Telegraph.visible = true
-	else:
-		$Telegraph.visible = false
+	#var vec = (get_global_mouse_position() - global_position + Vector2(0, 16))
+	#if(vec.x * vec.x + vec.y * vec.y < 16*16):
+	#	$Telegraph.visible = true
+	#else:
+	#	$Telegraph.visible = false
 
 func _turn():
 	if $Hitbox/CollisionShape2D.disabled:

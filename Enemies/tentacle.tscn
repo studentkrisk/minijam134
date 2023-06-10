@@ -12,26 +12,10 @@ size = Vector2(90, 93)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1whte"]
 
 [node name="Tentacle" type="AnimatableBody2D"]
+texture_filter = 1
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_oodje")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("1_6yc3y")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.08165e-12, 16)
-shape = SubResource("RectangleShape2D_o0dcp")
-
-[node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(2.08165e-12, 16)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_re2eu")
 
 [node name="Telegraph" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, 16)
@@ -63,6 +47,23 @@ offset_top = 16.0
 offset_right = 16.0
 offset_bottom = 48.0
 color = Color(1, 0.0588235, 0.0666667, 0.490196)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_6yc3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 16)
+shape = SubResource("RectangleShape2D_o0dcp")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 16)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_re2eu")
 
 [node name="IslandCheck" type="Area2D" parent="."]
 collision_layer = 0

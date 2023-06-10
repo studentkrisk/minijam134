@@ -18,4 +18,4 @@ func _process(delta):
 	var children = get_children()
 	children.erase($Player)
 	for i in range(len(children)):
-		children[i].position = size*((Global.islands[i] - Global.player.position)/(Vector2(32, 32)*16)/2 + Vector2(0.5, 0.5))
+		children[i].position = size*((Global.islands[i].position + Global.islands[i].port_pos - Global.player.position)/(Vector2(32, 32)*16)/2 + Vector2(0.5, 0.5))
