@@ -32,11 +32,11 @@ position = Vector2(16, 16)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
+[node name="Islands" type="Node2D" parent="."]
+
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("3_cv7gn")
-
-[node name="Islands" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
