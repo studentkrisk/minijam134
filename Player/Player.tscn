@@ -151,5 +151,21 @@ tree_root = SubResource("AnimationNodeBlendSpace2D_skyl7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/blend_position = Vector2(0, 0)
 
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(16, -256, 16, 256)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(-16, -256, -16, 256)
+width = 3.0
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(-240, 16, 240, 16)
+width = 3.0
+
+[node name="Line2D4" type="Line2D" parent="."]
+points = PackedVector2Array(-240, -16, 240, -16)
+width = 3.0
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

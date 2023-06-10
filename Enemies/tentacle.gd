@@ -3,6 +3,11 @@ extends AnimatableBody2D
 var lifetime = 5
 
 func _process(delta):
+	
+	print(fmod(global_position.y, 32))
+	global_position.y -= fmod(global_position.y, 32)
+	print(fmod(global_position.y, 32))
+	
 	var vec = (get_global_mouse_position() - global_position)
 	if(vec.x * vec.x + vec.y * vec.y < 16*16):
 		$Telegraph.visible = true
