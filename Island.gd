@@ -16,6 +16,3 @@ func _ready():
 					port_pos = Vector2(x, y)*Global.tile_size
 	set_cells_terrain_connect(0, cells, 0, 0)
 	$Icon.position = port_pos
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

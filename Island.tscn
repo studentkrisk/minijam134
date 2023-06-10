@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://lanho56jpkxe"]
+[gd_scene load_steps=7 format=3 uid="uid://lanho56jpkxe"]
 
 [ext_resource type="Script" path="res://Island.gd" id="1_e2ci1"]
 [ext_resource type="Texture2D" uid="uid://dwlthjat0tcom" path="res://Art/island_tileset.png" id="1_lx38w"]
@@ -32,6 +32,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_tct7b")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6my6"]
+size = Vector2(320, 320)
+
 [node name="Island" type="TileMap"]
 tile_set = SubResource("TileSet_3h1vh")
 format = 2
@@ -40,3 +43,8 @@ script = ExtResource("1_e2ci1")
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_ipo3m")
+
+[node name="NoSpawnZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoSpawnZone"]
+shape = SubResource("RectangleShape2D_j6my6")

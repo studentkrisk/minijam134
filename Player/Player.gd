@@ -16,6 +16,10 @@ func _physics_process(delta):
 			#moving = false
 	moving = false
 	
+	for i in Global.islands:
+		if i.port_pos + i.position + Vector2.ONE*0.5*Global.tile_size == position + $Raycast2D.target_position:
+			print("interact! able to")
+	
 	var inp = Vector2(
 		-int(Input.is_action_just_pressed("game_left")) + int(Input.is_action_just_pressed("game_right")),
 		-int(Input.is_action_just_pressed("game_up")) + int(Input.is_action_just_pressed("game_down"))
