@@ -47,5 +47,5 @@ func _turn():
 		#tentacle.global_position += Vector2(16, 16)
 		#tentacle.global_position.y =  tentacle.global_position.y - fposmod(tentacle.global_position.y, 32)
 		#tentacle.global_position.x =  tentacle.global_position.x - fposmod(tentacle.global_position.x, 32)
-		if(tentacle.global_position.distance_to(player.global_position) >= 32):
+		if(tentacle.global_position.distance_to(player.global_position) >= 91):
 			add_child(tentacle)

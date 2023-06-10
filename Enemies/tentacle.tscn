@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5qe2d42g2spe"]
+[gd_scene load_steps=6 format=3 uid="uid://b5qe2d42g2spe"]
 
 [ext_resource type="Texture2D" uid="uid://cgop0flwigjnh" path="res://Art/Tentacle.png" id="1_6yc3y"]
 [ext_resource type="Script" path="res://Enemies/tentacle.gd" id="1_oodje"]
@@ -7,13 +7,16 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_re2eu"]
-size = Vector2(96, 96)
+size = Vector2(90, 93)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1whte"]
 
 [node name="Tentacle" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_oodje")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_6yc3y")
 
@@ -27,6 +30,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_re2eu")
 
 [node name="Telegraph" type="Node2D" parent="."]
@@ -59,3 +63,13 @@ offset_top = 16.0
 offset_right = 16.0
 offset_bottom = 48.0
 color = Color(1, 0.0588235, 0.0666667, 0.490196)
+
+[node name="IslandCheck" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IslandCheck"]
+position = Vector2(-1, 15)
+shape = SubResource("CircleShape2D_1whte")
+
+[connection signal="area_entered" from="IslandCheck" to="." method="_on_island_check_area_entered"]
+[connection signal="body_entered" from="IslandCheck" to="." method="_on_island_check_body_entered"]

@@ -1,12 +1,12 @@
 extends AnimatableBody2D
 
-var lifetime = 5
+var lifetime = 50
 
 func _process(delta):
 	
 	global_position.y -= fmod(global_position.y, 32)
 	
-	var vec = (get_global_mouse_position() - global_position)
+	var vec = (get_global_mouse_position() - global_position + Vector2(0, 16))
 	if(vec.x * vec.x + vec.y * vec.y < 16*16):
 		$Telegraph.visible = true
 	else:
@@ -19,3 +19,9 @@ func _turn():
 		lifetime -= 1
 		if lifetime <= 0:
 			queue_free()
+
+func _on_island_check_area_entered(area):
+	queue_free()
+
+func _on_island_check_body_entered(body):
+	queue_free()
