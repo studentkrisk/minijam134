@@ -8,7 +8,7 @@ func _ready():
 	$Player.turn_end.connect(_turn_end)
 	for n in range(10):
 		var i = Island.instantiate()
-		i.position = Vector2(n*16*15, 0)
+		i.position = Vector2(n*32*8, 0)
 		$Islands.add_child(i)
 	
 func _turn_end():

@@ -7,13 +7,13 @@ signal turn_end
 func _physics_process(delta):
 	$AnimationTree.active = !$AnimationTree.active
 	if not $Raycast2D.is_colliding() and $Wait.is_stopped():
-		#global_position += $Raycast2D.target_position
-		var tween = create_tween()
-		tween.tween_property(self, "global_position", global_position + $Raycast2D.target_position, 0.1)
-		tween.play()
-		if moving:
-			$Wait.start(0.1)
-			moving = false
+		global_position += $Raycast2D.target_position
+		#var tween = create_tween()
+		#tween.tween_property(self, "global_position", global_position + $Raycast2D.target_position, 0.1)
+		#tween.play()
+		#if moving:
+			#$Wait.start(0.1)
+			#moving = false
 	moving = false
 	
 	if Input.is_action_just_pressed("wait"):
