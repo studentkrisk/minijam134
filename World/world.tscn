@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnv7kn6yx4l6h" path="res://Art/DarkWater.png" id="2_wxuhb"]
 [ext_resource type="Script" path="res://World/Spawner.gd" id="3_cv7gn"]
 [ext_resource type="Script" path="res://World/MiniMap.gd" id="5_213kk"]
-[ext_resource type="Texture2D" uid="uid://bljv83mbq6wja" path="res://Art/CannonBall.png" id="5_w7vds"]
+[ext_resource type="Texture2D" uid="uid://dcysilpi4vilf" path="res://Art/boatmini.png" id="6_h8ja3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43mob"]
 texture = ExtResource("2_wxuhb")
@@ -57,5 +57,7 @@ color = Color(0.0901961, 0.0941176, 0.258824, 1)
 script = ExtResource("5_213kk")
 
 [node name="Player" type="Sprite2D" parent="CanvasLayer/MarginContainer/MiniMap"]
+z_index = 100
+texture_filter = 1
 position = Vector2(56, 56)
-texture = ExtResource("5_w7vds")
+texture = ExtResource("6_h8ja3")
