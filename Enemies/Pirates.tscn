@@ -1,13 +1,15 @@
+
 [gd_scene load_steps=17 format=3 uid="uid://vrrpce0gurqc"]
 
 [ext_resource type="Script" path="res://Enemies/Pirates.gd" id="1_btya5"]
-[ext_resource type="Texture2D" uid="uid://ce7f46w7balw5" path="res://Art/pirate.png" id="2_h4aef"]
+[ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="1_i6ryi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mysd"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lw6yh"]
 size = Vector2(352, 352)
+
 
 [sub_resource type="Animation" id="Animation_sckxb"]
 resource_name = "Down"
@@ -123,6 +125,10 @@ blend_point_3/pos = Vector2(1, 0)
 
 [node name="Pirates" type="CharacterBody2D"]
 script = ExtResource("1_btya5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_i6ryi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4mysd")

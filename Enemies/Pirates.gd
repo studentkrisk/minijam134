@@ -5,9 +5,6 @@ var can_shoot = true
 
 @onready var Cannon = preload("res://Enemies/cannon.tscn")
 
-func _process(delta):
-	$AnimationTree.active = !$AnimationTree.active
-
 func _turn():
 	if player != null:
 		var inp = Vector2.ZERO
@@ -47,8 +44,6 @@ func _turn():
 					get_parent().add_child(cannon)
 					can_shoot = false
 					$Cooldown.start(1)
-		if inp != Vector2.ZERO:
-			$AnimationTree.set("parameters/blend_position", inp)
 		$Raycast2D.target_position = inp * Global.tile_size
 		if not $Raycast2D.is_colliding():
 			global_position += $Raycast2D.target_position
