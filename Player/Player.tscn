@@ -183,6 +183,7 @@ offset_bottom = 32.0
 color = Color(0, 1, 0, 0.490196)
 
 [node name="Wire" type="Line2D" parent="."]
+width = 4.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

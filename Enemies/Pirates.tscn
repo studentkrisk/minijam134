@@ -1,15 +1,13 @@
-
 [gd_scene load_steps=17 format=3 uid="uid://vrrpce0gurqc"]
 
 [ext_resource type="Script" path="res://Enemies/Pirates.gd" id="1_btya5"]
-[ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="1_i6ryi"]
+[ext_resource type="Texture2D" uid="uid://ce7f46w7balw5" path="res://Art/pirate.png" id="2_h4aef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mysd"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lw6yh"]
 size = Vector2(352, 352)
-
 
 [sub_resource type="Animation" id="Animation_sckxb"]
 resource_name = "Down"
@@ -27,6 +25,22 @@ tracks/0/keys = {
 "values": [3]
 }
 
+[sub_resource type="Animation" id="Animation_ouick"]
+resource_name = "Left"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pirate:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_awbfc"]
 length = 0.001
 tracks/0/type = "value"
@@ -40,22 +54,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_hbklh"]
-resource_name = "Up"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pirate:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_5evg6"]
@@ -74,8 +72,8 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_ouick"]
-resource_name = "Left"
+[sub_resource type="Animation" id="Animation_hbklh"]
+resource_name = "Up"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,7 +85,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i0cah"]
@@ -125,10 +123,6 @@ blend_point_3/pos = Vector2(1, 0)
 
 [node name="Pirates" type="CharacterBody2D"]
 script = ExtResource("1_btya5")
-
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_i6ryi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4mysd")
