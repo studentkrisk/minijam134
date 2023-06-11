@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3putl4ijhdr"
-path="res://.godot/imported/PirateShipSheet.png-08d69165f8058c84255cf8012ba0d772.ctex"
+uid="uid://ce7f46w7balw5"
+path="res://.godot/imported/pirate.png-ea20bfb08d737f83b5ac7a047704d7b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/PirateShipSheet.png"
-dest_files=["res://.godot/imported/PirateShipSheet.png-08d69165f8058c84255cf8012ba0d772.ctex"]
+source_file="res://Art/pirate.png"
+dest_files=["res://.godot/imported/pirate.png-ea20bfb08d737f83b5ac7a047704d7b8.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
