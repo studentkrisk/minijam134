@@ -5,8 +5,6 @@ var generating = true
 var step = "move"
 
 func _ready():
-	$Enemies.chanceP = 0
-	$Enemies.chanceT = 0
 	Global.player = $Player
 	$Player.turn_end.connect(_turn_end)
 	for n in range(Global.num_islands):
@@ -52,32 +50,12 @@ func _process(delta):
 		if(Input.is_action_just_pressed("Shoot")):
 			step = "kill"
 	if step == "kill":
-		$Enemies.chanceT = 3
 		$CanvasLayer/Label.visible = true
 		$CanvasLayer/Label.text = "Now that you know how to kill"
 		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
 		$CanvasLayer/Label2.text = "try and kill a kraken tentacle"
 		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
-		if (Global.tentaclesKilled > 0):
-			step = "waiting"
-	if step == "waiting":
-		$CanvasLayer/Label.visible = true
-		$CanvasLayer/Label.text = "Sometime you have to be patient"
-		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
-		$CanvasLayer/Label2.text = "so try waiting with SPACE"
-		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
-		if Input.is_action_just_pressed("wait"):
-			step = "pirates"
-	if step == "pirates":
-		$Enemies.chanceP = 3
-		$Enemies.chanceT = 0
-		$CanvasLayer/Label.visible = true
-		$CanvasLayer/Label.text = "Another enemy is the pirate that"
-		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
-		$CanvasLayer/Label2.text = "shoots bullets 2 tiles/sec, kill a pirate"
-		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
-		if (Global.piratesKilled > 0):
-			step = "waiting"
+		
 		
 func _turn_end():
 	$Enemies._turn()

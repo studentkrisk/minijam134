@@ -13,7 +13,6 @@ func _turn():
 	for i in children:
 		i._turn()
 	var num = rng.randi_range(0, chanceP)
-	num = 10000018457
 	if num == 1:
 		var pirate = Pirate.instantiate()
 		var player = Global.player
@@ -27,11 +26,10 @@ func _turn():
 			num = rng.randi_range(0, 240)
 			num = num + Global.tile_size/2 - (num + Global.tile_size/2)%Global.tile_size
 			offset = Vector2(-256, num)
-		pirate.global_position = player.global_position + offset
+		pirate.global_position = Global.player.global_position + offset
 		add_child(pirate)
 	
 	num = rng.randi_range(0, chanceT)
-	num = 19457
 	if num == 1:
 		var tentacle = Tentacle.instantiate()
 		var player = Global.player

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var moving = false
-
+@onready var Harpoon = preload("res://Player/harpoon.tscn")
 signal turn_end
 
 func _ready():
@@ -78,7 +78,6 @@ func _physics_process(delta):
 func _on_hurtbox_body_entered(body):
 	print("hit")
 	body.queue_free()
-	queue_free()
 
 func _on_wait_timeout():
 	emit_signal("turn_end")
@@ -86,4 +85,3 @@ func _on_wait_timeout():
 func _on_hurtbox_area_entered(area):
 	print("hitT")
 	area.get_parent().queue_free()
-	queue_free()
