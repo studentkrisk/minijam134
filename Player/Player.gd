@@ -17,6 +17,9 @@ func _physics_process(delta):
 	else:
 		$ColorRect.color = Color(0, 255, 0, 125)
 	
+	if(Input.is_action_just_pressed("wait")):
+		emit_signal("turn_end")
+	
 	if(Input.is_action_just_pressed("Aim")):
 		$ColorRect.visible = true
 	

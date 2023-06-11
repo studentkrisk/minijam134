@@ -62,3 +62,6 @@ func _on_player_detection_zone_body_entered(body):
 
 func _on_cooldown_timeout():
 	can_shoot = true
+
+func _on_hurtbox_area_entered(area):
+	queue_free()
