@@ -27,4 +27,5 @@ func _on_island_check_body_entered(body):
 	queue_free()
 
 func _on_hurtbox_area_entered(area):
+	Global.tentaclesKilled += 1
 	queue_free()
