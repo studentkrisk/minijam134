@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var Island = preload("res://Island.tscn")
+@onready var Island = preload("res://World/Island.tscn")
 var generating = true
 func _ready():
 	Global.player = $Player

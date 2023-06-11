@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://lanho56jpkxe"]
 
-[ext_resource type="Texture2D" uid="uid://ypu3aj65rvgv" path="res://Art/island_tileset.png" id="1_3dt6j"]
-[ext_resource type="Script" path="res://Island.gd" id="1_e2ci1"]
-[ext_resource type="Texture2D" uid="uid://bn14go6n71krp" path="res://Art/Port.png" id="3_1b5ny"]
+[ext_resource type="Texture2D" uid="uid://ypu3aj65rvgv" path="res://Art/island_tileset.png" id="1_s3cbg"]
+[ext_resource type="Script" path="res://World/Island.gd" id="2_dbix1"]
+[ext_resource type="Texture2D" uid="uid://bn14go6n71krp" path="res://Art/Port.png" id="3_lqyt1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dhqd"]
-texture = ExtResource("1_3dt6j")
+texture = ExtResource("1_s3cbg")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -38,11 +38,11 @@ size = Vector2(16, 16)
 [node name="Island" type="TileMap"]
 tile_set = SubResource("TileSet_g6awg")
 format = 2
-script = ExtResource("1_e2ci1")
+script = ExtResource("2_dbix1")
 
 [node name="Port" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("3_1b5ny")
+texture = ExtResource("3_lqyt1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Port"]
 
