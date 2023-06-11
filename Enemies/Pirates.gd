@@ -64,4 +64,5 @@ func _on_cooldown_timeout():
 	can_shoot = true
 
 func _on_hurtbox_area_entered(area):
+	Global.piratesKilled += 1
 	queue_free()

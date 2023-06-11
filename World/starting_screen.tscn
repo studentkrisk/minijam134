@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyks0r2r18gfx"]
+
+[ext_resource type="Script" path="res://World/starting_screen.gd" id="1_1dm7g"]
+[ext_resource type="Texture2D" uid="uid://bcnnh3l36rrn3" path="res://Art/background.png" id="1_y1h3b"]
+[ext_resource type="Texture2D" uid="uid://dbaod3wyjgedk" path="res://Art/tutorialbutton.png" id="2_o3sgs"]
+[ext_resource type="Texture2D" uid="uid://l33me2y4ne68" path="res://Art/playbutton.png" id="4_4u13d"]
+[ext_resource type="Texture2D" uid="uid://padcls7ot01c" path="res://Art/creditsbutton.png" id="5_bt62h"]
+[ext_resource type="Texture2D" uid="uid://dexsqohbueoeb" path="res://Art/linkingthegrid.png" id="6_ygffg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ko0"]
+size = Vector2(50, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58hki"]
+size = Vector2(25, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ab1i"]
+size = Vector2(40, 10)
+
+[node name="StartingScreen" type="Node2D"]
+script = ExtResource("1_1dm7g")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(252, 241)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_y1h3b")
+
+[node name="Tutorial" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(6, 280)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_o3sgs")
+shape = SubResource("RectangleShape2D_t1ko0")
+
+[node name="Play" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(9, 222)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_4u13d")
+shape = SubResource("RectangleShape2D_58hki")
+
+[node name="Credits" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(6, 339)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_bt62h")
+shape = SubResource("RectangleShape2D_3ab1i")
+
+[node name="Linkingthegrid" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(237, 94)
+scale = Vector2(6, 6)
+texture = ExtResource("6_ygffg")
+
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

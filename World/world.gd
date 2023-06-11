@@ -3,6 +3,7 @@ extends Node2D
 @onready var Island = preload("res://Island.tscn")
 var generating = true
 func _ready():
+	Global.islands = []
 	Global.player = $Player
 	$Player.turn_end.connect(_turn_end)
 	for n in range(Global.num_islands):

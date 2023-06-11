@@ -4,6 +4,8 @@ var moving = false
 @onready var Harpoon = preload("res://Player/harpoon.tscn")
 signal turn_end
 
+var islands = 0
+
 func _ready():
 	$Icon.modulate = Color(1, 1, 1, 0)
 	$Wire.points = [Vector2.ZERO, Vector2.ZERO]
@@ -57,8 +59,11 @@ func _physics_process(delta):
 				if cur_island != null and cur_island != i:
 					cur_island.next_island = $Raycast2D.get_collider().get_parent().get_parent()
 				cur_island = $Raycast2D.get_collider().get_parent().get_parent()
+				islands += 1
+				if islands >= Global.num_islands:
+					SceneChanger.change_scene_to("res://World/win_screen.tscn")
 			break
-	print(position)
+	#print(position)
 	if cur_island != null:
 		$Wire.points[1] = cur_island.position + cur_island.get_node("Port").position - position
 	
@@ -78,6 +83,7 @@ func _physics_process(delta):
 func _on_hurtbox_body_entered(body):
 	print("hit")
 	body.queue_free()
+	SceneChanger.change_scene_to("res://World/lose_screen.tscn")
 
 func _on_wait_timeout():
 	emit_signal("turn_end")
@@ -85,3 +91,4 @@ func _on_wait_timeout():
 func _on_hurtbox_area_entered(area):
 	print("hitT")
 	area.get_parent().queue_free()
+	SceneChanger.change_scene_to("res://World/lose_screen.tscn")
