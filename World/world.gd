@@ -16,7 +16,6 @@ func _ready():
 				var dist = j.position.distance_to(i.position)
 				if dist < lowest_dist:
 					lowest_dist = dist
-			print(lowest_dist)
 			if i.position.distance_to(Vector2.ZERO) > 10*Global.tile_size and lowest_dist > 10*Global.tile_size:
 				break
 		Global.islands.append(i)

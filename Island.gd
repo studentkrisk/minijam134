@@ -15,4 +15,5 @@ func _ready():
 				if Vector2.ZERO.distance_to(port_pos) < Vector2.ZERO.distance_to(Vector2(x, y)):
 					port_pos = Vector2(x, y)*Global.tile_size
 	set_cells_terrain_connect(0, cells, 0, 0)
-	$Icon.position = port_pos
+	erase_cell(0, port_pos/Global.tile_size)
+	$Port.position = port_pos + Vector2.ONE*Global.tile_size*0.5

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbew8w873l4qn"]
+[gd_scene load_steps=16 format=3 uid="uid://bbew8w873l4qn"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_qeom8"]
 [ext_resource type="Texture2D" uid="uid://b3bhkmm5aai4t" path="res://Art/player.png" id="2_7m6nd"]
+[ext_resource type="Texture2D" uid="uid://vie548wsuwa3" path="res://icon.svg" id="3_t5hmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucujw"]
 size = Vector2(32, 32)
@@ -152,20 +153,29 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/blend_position = Vector2(0, 0)
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(16, -256, 16, 256)
 width = 3.0
 
 [node name="Line2D2" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-16, -256, -16, 256)
 width = 3.0
 
 [node name="Line2D3" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-240, 16, 240, 16)
 width = 3.0
 
 [node name="Line2D4" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-240, -16, 240, -16)
 width = 3.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_t5hmr")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
