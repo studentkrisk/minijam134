@@ -27,7 +27,6 @@ func _process(delta):
 				clamp(-1, 1/tan(a), 1)*sign(sin(a)),
 				clamp(-1, tan(a), 1)*sign(cos(a))
 			)
-			#print(children[i].position)
 			children[i].position = children[i].position*0.5 + Vector2.ONE*0.5
 			children[i].position *= size.x
 		else:

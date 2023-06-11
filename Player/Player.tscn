@@ -152,35 +152,35 @@ tree_root = SubResource("AnimationNodeBlendSpace2D_skyl7")
 anim_player = NodePath("../AnimationPlayer")
 parameters/blend_position = Vector2(0, 0)
 
-[node name="Debug" type="Node2D" parent="."]
+[node name="Line2D" type="Line2D" parent="."]
 visible = false
-
-[node name="Line2D" type="Line2D" parent="Debug"]
 points = PackedVector2Array(16, -256, 16, 256)
 width = 3.0
 
-[node name="Line2D2" type="Line2D" parent="Debug"]
+[node name="Line2D2" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-16, -256, -16, 256)
 width = 3.0
 
-[node name="Line2D3" type="Line2D" parent="Debug"]
+[node name="Line2D3" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-240, 16, 240, 16)
 width = 3.0
 
-[node name="Line2D4" type="Line2D" parent="Debug"]
+[node name="Line2D4" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(-240, -16, 240, -16)
 width = 3.0
 
 [node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.972549)
 position = Vector2(-1, 0)
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_t5hmr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_right = 32.0
-offset_bottom = 32.0
-color = Color(0, 1, 0, 0.490196)
+[node name="Wire" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 20, 0)
+width = 4.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
