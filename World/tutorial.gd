@@ -22,7 +22,7 @@ func _ready():
 				break
 		Global.islands.append(i)
 		$Islands.add_child(i)
-		
+var cur_island = null
 func _process(delta):
 	if step == "move":
 		$CanvasLayer/Label2.text = "Use WASD to move"
@@ -70,20 +70,33 @@ func _process(delta):
 		$Enemies.chanceP = 3
 		$Enemies.chanceT = 0
 		$CanvasLayer/Label.visible = true
-		$CanvasLayer/Label.text = "Another enemy is the pirate that"
+		$CanvasLayer/Label.text = "Another enemy is the pirate,"
 		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
-		$CanvasLayer/Label2.text = "shoots bullets 2 tiles/sec, kill a pirate"
+		$CanvasLayer/Label2.text = "which shoots bullets 2 tiles/sec"
 		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
 		if (Global.piratesKilled > 0):
+			step = "get_port"
+	if step == "get_port":
+		$CanvasLayer/Label.text = "Now, try running into the port"
+		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
+		$CanvasLayer/Label2.text = "of an island to attach a wire"
+		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
+		if Global.player.cur_island != null:
+			step = "attach_port"
+			cur_island = Global.player.cur_island
+	if step == "attach_port":
+		$CanvasLayer/Label.text = "Finally, run into a different"
+		$CanvasLayer/Label.position.x = 256 - $CanvasLayer/Label.size.x/2
+		$CanvasLayer/Label2.text = "port to attach the wire."
+		$CanvasLayer/Label2.position.x = 256 - $CanvasLayer/Label2.size.x/2
+		if cur_island.next_island != null:
 			step = "final"
 	if step == "final":
 		$CanvasLayer/Label.visible = true
-		$CanvasLayer/Label.set("theme_override_font_sizes/font_size", 20)
+		$CanvasLayer/Label.set("theme_override_font_sizes/font_size", 45)
 		$CanvasLayer/Label.text = "Now that you know the game you can have"
-		$CanvasLayer/Label.position.x = 75
-		$CanvasLayer/Label2.set("theme_override_font_sizes/font_size", 15)
-		$CanvasLayer/Label2.text = "your own adventure (you only live once), click to proceed"
-		$CanvasLayer/Label2.position.x = 50
+		$CanvasLayer/Label2.set("theme_override_font_sizes/font_size", 15*2)
+		$CanvasLayer/Label2.text = "your own adventure (you only live once). click to proceed"
 		if(Input.is_action_just_pressed("Shoot")):
 			SceneChanger.change_scene_to("res://World/world.tscn")
 		

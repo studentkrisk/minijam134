@@ -10,7 +10,7 @@ func _ready():
 	$Icon.modulate = Color(1, 1, 1, 0)
 	$Wire.points = [Vector2.ZERO, Vector2.ZERO]
 
-var cur_island = null
+@export var cur_island : Node = null
 func _physics_process(delta):
 	#var mag = pow(pow(get_global_mouse_position().x, 2) + pow(get_global_mouse_position().y, 2), 0.5)
 	var mousePos = get_global_mouse_position()# + (Vector2(16 * get_global_mouse_position().x/100, 16 * get_global_mouse_position().y/100))
